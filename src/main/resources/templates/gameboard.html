@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SpaceFighter Game</title>
+<link th:href="@{/css/game-board.css}"  rel="stylesheet">
+</head>
+<body>
+
+<font th:id="score"><b>[0000]</b></font>
+
+<table id="tab">
+
+<tr th:each="x: ${#numbers.sequence(0, board_rows - 1)}">
+<td th:each="y: ${#numbers.sequence(0, board_cols - 1)}" th:id="${x * board_cols + y}"
+	th:style="|background-color: ${board[x * board_cols + y].color}|"/>
+</tr>
+
+</table>
+
+<input type="hidden" th:value="${meteorIndex}" id="meteor">
+<input type="hidden" th:value="${board_rows}" id="rows">
+<input type="hidden" th:value="${board_cols}" id="cols">
+<input type="hidden" th:value="${jet_position}" id="jet-position">
+
+</body>
+
+<script type="text/javascript" th:src="@{/script/game-script.js}"></script>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SpaceFighter Game</title>
+<link th:href="@{/css/finish-board.css}"  rel="stylesheet">
+</head>
+<body>
+
+
+<table>
+
+<tr th:each="x: ${#numbers.sequence(0, 22)}">
+<td th:each="y: ${#numbers.sequence(0, 29)}" th:id="${x * 30 + y}"/>
+</tr>
+
+</table>
+
+
+<input type="hidden" id="msg" th:value="${result}">
+
+</body>
+
+<script type="text/javascript" th:src="@{/script/finish-script.js}"></script>
+
+</html>
